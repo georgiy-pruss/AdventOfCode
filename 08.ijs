@@ -11,7 +11,7 @@ main =: 3 : 0
     assert ('"'={.l) *. '"'={:l
     l=.(}.}:l) rplc '\\';'_';'\"';'_'
     ls=.ls+(#l)-3*+/'\x' E. l
-    ln=.ln+2+# o rplc '\';'\\';'"';'\"'
+    ln=.ln+2+# o rplc '\';'\\';'"';'\"'  NB. part 2
   end.
   (ll-ls),ln-ll
 )
