@@ -1,8 +1,8 @@
-NB. count '(' and ') in the input (here -- in command line argument) http://adventofcode.com/day/1
-echo -/+/"1 '()'=/>2{ARGV
+NB. count '(' and ') in the input http://adventofcode.com/day/1
+echo -/+/"1 '()'=/ t=. 1!:1 {:ARGV
 
 NB. find first 'negative' balance position
-echo >:_1 i.~+/\<:+:*'('=>2{ARGV
+echo >:_1 i.~+/\<:+:*'('= t
 
 exit 0
 
