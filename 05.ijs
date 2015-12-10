@@ -25,7 +25,7 @@ main2 =: 3 : 0
   n
 )
 
-t=. LF split1 1!:1 [2{ARGV
+t=. LF split1 1!:1 {:ARGV
 echo main1 t
 echo main2 t
 exit 0
