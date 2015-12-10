@@ -12,8 +12,7 @@ main1 =: 3 : 0
     if. (#l)<20 do. continue. end. NB. 'toggle x,y through x,y'
     'p1 p2'=. _3 _1{' 'split1 l  NB. 'aa,bb';'cc,dd'
     'a b'=.".p1 [ 'c d'=.".p2
-    rows=.a+i.>:c-a
-    cols=.b+i.>:d-b
+    rows=.a+i.>:c-a [ cols=.b+i.>:d-b
     coords=.rows (<@,)"0/ cols
     if. l startswith 'turn on' do. x=.1 coords}x
     elseif. l startswith 'turn off' do. x=.0 coords}x
@@ -31,10 +30,8 @@ main2 =: 3 : 0
     if. (#l)<20 do. continue. end. NB. 'toggle x,y through x,y'
     'p1 p2'=. _3 _1{' 'split1 l  NB. 'aa,bb';'cc,dd'
     'a b'=.".p1 [ 'c d'=.".p2
-    rows=.a+i.>:c-a
-    cols=.b+i.>:d-b
-    coords=.rows (<@,)"0/ cols
-    add=.1 coords}z
+    rows=.a+i.>:c-a [ cols=.b+i.>:d-b
+    add=.1 (rows (<@,)"0/ cols)}z
     if. l startswith 'turn on' do. x=.x+add
     elseif. l startswith 'turn off' do. x=.0>.x-add
     elseif. l startswith 'toggle' do. x=.x+add*2
@@ -43,7 +40,7 @@ main2 =: 3 : 0
   +/+/x
 )
 
-t=. LF split1 1!:1 [2{ARGV
+t=. LF split1 1!:1 {:ARGV
 echo main1 t
 echo main2 t
 exit 0
