@@ -1,6 +1,6 @@
 NB. next good password http://adventofcode.com/day/11
 
-ilo =: (+./)@(8 11 14&e.)                           NB. 'i' 'l' 'o' in vector
+ilo =: +./ @ (8 11 14&e.)                           NB. 'i' 'l' 'o' in vector
 abc =: 3 : '+./*./ 2=/\ 2 1 0 + 0 1 2 |.!._1"0 _ y' NB. three ascending chars
 xxs =: |:2 26$i.26                                  NB. noun: list of all pairs
 prs =: 3 : '2<:+/+./"1 xxs E."1 _ y'                NB. at least 2 diff pairs
@@ -14,12 +14,14 @@ main =: 3 : 0
   n =. n4v v4s y
   while. do. v=. v4n n=. >:n
     if. -.ilo v do. if. abc v do. if. prs v do. break. end. end. end.
-  end.
+  end.                  NB. if. .. if. .. is 1.5 times faster than *.
   s4v v
 )
 
 echo p ,: main p=. main 'hepxcrrq' NB.hepxxyzz heqaabcc
 exit 0
+
+NB. 1 e. .. is a bit faster than +./
 
 0 : 0
 --- Day 11: Corporate Policy ---
