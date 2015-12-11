@@ -9,18 +9,19 @@ lns =: 3 : 0
       n=.>:n
     else.
       r=. r, (":n),c
-      n=.1
-      c=.{:ab
+      n=. 1
+      c=. {:ab
     end.
   end.
   r, (":n),c
 )
 
-main =: 4 : '# lns^:x y'
-
-echo 40 main '3113322113'
-echo 50 main '3113322113'
+echo # lns^:40 '3113322113'
+echo # lns^:50 '3113322113'
 exit 0
+
+NB. See also tacit fn, e.g. by Henry Rich, quite fast
+NB. # ,@((# , {.);.1~ (~: |.!.0)) ^:40 "."0 '3113322113'
 
 0 : 0
 --- Day 10: Elves Look, Elves Say ---
