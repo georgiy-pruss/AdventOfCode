@@ -1,8 +1,8 @@
 NB. next good password http://adventofcode.com/day/11
 
 ilo =: (+./)@(8 11 14&e.)                           NB. 'i' 'l' 'o' in vector
-abc =: 3 : '+./*./ 2=/\ 2 1 0 + 0 1 2 |.!._1"0 _ y' NB. three acsending
-xxs =: |:2 26$i.26                                  NB. list of all pairs
+abc =: 3 : '+./*./ 2=/\ 2 1 0 + 0 1 2 |.!._1"0 _ y' NB. three ascending chars
+xxs =: |:2 26$i.26                                  NB. noun: list of all pairs
 prs =: 3 : '2<:+/+./"1 xxs E."1 _ y'                NB. at least 2 diff pairs
 
 v4s =: _97+a.&i. NB. 'hepxcrrq' --> 7 4 15 23 2 17 17 16
