@@ -4,7 +4,7 @@ http://adventofcode.com/ - Santa-related short programming problems :)
 
 My solutions are in procedural style in J. I think the tacit approach (like #@<:/@:+&[@[:+.~&2@{.=/) is too write-only.
 
-Usually the programs require one command line argument - data file. E.g. 01.ijs 01.txt
+Usually the programs require one command line argument - data file, e.g. 01.ijs 01.txt  
 Some programs with short input don't require any external data.
 
 01.ijs count '(' and ')'  
