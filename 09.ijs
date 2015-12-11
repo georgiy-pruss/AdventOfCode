@@ -3,21 +3,21 @@ NB. shortest distance http://adventofcode.com/day/9
 split1=: <;._2@,~
 dcr=: ] }.~ [: - CR = {:  NB. drop last cr; dtb = drop trailing blanks
 
-names=: 0$<''
+cities=: 0$<''
 
-find =: 3 : 0 NB. find boxed name in 'names'. add if absent
-  i =. names i. y if. i=#names do. names=:names,y end. i
+find =: 3 : 0 NB. find boxed name in 'cities'. add if absent
+  i =. cities i. y if. i=#cities do. cities=:cities,y end. i
 )
 
 main =: 3 : 0
   dist=.300 300$_ NB. distance, max for 300 pts; will be trimmed to real data
-  for_l. y do.
+  for_l. y do.    NB. instead we could read all, then parse
     if. 0=# l=. dtb dcr >l do. continue. end.
     assert ('to'-:>1{m) *. (,'=')-:>3{ m =.' ' split1 l
     a =. find 0{m [ b =. find 2{m
     dist =. (".>4{m) ((a,b);b,a) } dist
   end.
-  dist =. n{."1 (n=.#names){. dist
+  dist =. n{."1 (n=.#cities){. dist
   smin =. _ [ smax =. 0
   for_p. (i.!n) A. i.n do. NB. go through all permutations of i.n
     s =. +/ (<"1 (2[\p)) { dist
@@ -29,6 +29,16 @@ main =: 3 : 0
 
 echo main LF split1 1!:1 {:ARGV
 exit 0
+
+0 : 0 ... see also tacit, e.g. by Ryan Eckbo:
+input=: {: 0 2 4{"1 ' '&cut;._2 freads'09.txt' NB. {: - drop last empty row
+cities=: ~. , }:"1 input
+dists=: > ".each {:"1 input
+edges=: <@/:~"1 }:"1 input
+getdist=: (dists {~ edges i. <)@/:~
+getpathdist=: +/@:(2&(getdist\))
+<./ getpathdist"1 (i.@!@# A. ])cities NB. but this is slower than mine
+)
 
 0 : 0
 --- Day 9: All in a Single Night ---
