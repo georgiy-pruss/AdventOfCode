@@ -18,3 +18,4 @@ Some programs with short input don't require any external data.
 09.ijs shortest distance (Permutations)  
 10.ijs look-n-say (RLE)  
 11.ijs next good password  
+12.ijs sum all numbers in JSON
