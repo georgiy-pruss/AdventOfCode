@@ -1,6 +1,6 @@
 NB. happy dinner http://adventofcode.com/day/13
 
-m=: ' '&cut&}:&}:&> cutLF fread {:ARGV NB. matrix of input; &}:&}: - trim '.'CR
+m=: ' '&cut&}:&}:&> cutLF fread {:ARGV NB. matrix of input; &}:&}: - trim '.',CR
 u=: ~.{."1 m                  NB. noun: unique names = all the ppl
 k=: #u                        NB. noun: number of ppl
 
