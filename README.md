@@ -1,10 +1,11 @@
 # AdventOfCode
 
-http://adventofcode.com/ - Santa-related short programming problems :)
+Advent of code 2015 - Santa-related short programming problems :)
+http://adventofcode.com/
 
-My solutions are in procedural style in J. I think the tacit approach (like #@<:/@:+&[@[:+.~&2@{.=/) is too write-only.
+My solutions are mainly in procedural style in J. I think the strict tacit approach (like #@<:/@:+&[@[:+.~&2@{.=/) is too write-only.
 
-Usually the programs require one command line argument - data file, e.g. 01.ijs 01.txt  
+Usually the programs require one command line argument -- data file, e.g. 01.ijs 01.txt  
 Some programs with short input don't require any external data.
 
 01.ijs count '(' and ')'  
@@ -19,4 +20,4 @@ Some programs with short input don't require any external data.
 10.ijs look-n-say (RLE)  
 11.ijs next good password  
 12.ijs sum all numbers in JSON  
-13.ijs happy dinner (~09)  
+13.ijs happy dinner (like 09)  
