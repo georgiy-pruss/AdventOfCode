@@ -1,28 +1,20 @@
 NB. happy dinner http://adventofcode.com/day/13
 
-m=: ' '&cut&}:&}:&> cutLF fread {:ARGV NB. matrix of input; &}:&}: - trim '.',CR
-u=: ~.{."1 m                  NB. noun: unique names = all the ppl
-k=: #u                        NB. noun: number of ppl
+m=: ' '&cut & > cutLF ('.',CR) -.~ fread {:ARGV NB. matrix of input
+u=: ~. {."1 m                NB. noun: unique names = all the ppl
+s=: _1 1{~'gain'-: >@:(2&{)  NB. _1 for 'lose', 1 for 'gain'
+n=: ". @ > @ (3&{)           NB. numeric value
+g=: 4 : 'v=.0$~2##x for_e. y do. v=. ((s*n)e) (< x i. 0 10{e) }v end. v' NB. calc matrix
+v=: u g m                    NB. noun: 'happiness' matrix; all data are parsed now
 
-s=: _1 1{~'gain' -: >@:(2&{)  NB. _1 for 'lose', 1 for 'gain'
-n=: ".@>@(3&{)                NB. numeric value
-c=: <@(u i. 0 10&{)           NB. coords -- depends on u!
-g=: 4 : 'for_e. y do. x=. ((s*n)e) (c e)}x end. x' NB. no general reduce in J (x0 u reduce y)
+h=: {&v @ < @ ,              NB. get 'happiness' for x -> y
+r=: 2 h/\ ]                  NB. one way relations betrween ppl in one combination
+w=: +/@r + +/@r@|.           NB. total happiness of one combination
+p=: ([ , {.)"1@(i.@! A. i.)  NB. all permutation with first column appended on the right
+echo >./ w"1 p #u
 
-v=: (0$~2#k) g m              NB. noun: 'happiness' matrix
-d=: {&v@<@,                   NB. get 'happiness' for x -> y
-r=: 2 d/\ ]                   NB. relation betrween two ppl
-w=: +/@r + +/@r@|.            NB. total happiness of one combination
-p=: (i.!k) A. i.k             NB. noun: permutation - all combinations
-q=: ([ , {.)"1 p              NB. noun: repeat first item as last in all combinations
-
-echo >./ w"1 q
-
-u=: u,<'o/'                   NB. add myself
-v=: (0$~2#k=:#u) g m          NB. g depends on u, but it's ok not to redefine here
-r=: 2 ({&v@<@,)/\ ]
-
-echo >./ (+/@r + +/@r@|.)"1 ([,{.)"1 (i.!k) A. i.k
+h=: ({&v @ < @ ,) :: 0:      NB. all missing 'happiness' values will be 0
+echo >./ w"1 p >:#u          NB. repeat calculation for one more (virtual) person
 
 exit 0
 
