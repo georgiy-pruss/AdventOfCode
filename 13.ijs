@@ -8,7 +8,7 @@ g=: 4 : 'v=.0$~2##x for_e. y do. v=. ((s*n)e) (< x i. 0 10{e) }v end. v' NB. cal
 v=: u g m                    NB. noun: 'happiness' matrix; all data are parsed now
 
 h=: {&v @ < @ ,              NB. get 'happiness' for x -> y
-r=: 2 h/\ ]                  NB. one way relations betrween ppl in one combination
+r=: 2 h/\ ]                  NB. one way relations between ppl in one combination
 w=: +/@r + +/@r@|.           NB. total happiness of one combination
 p=: ([ , {.)"1@(i.@! A. i.)  NB. all permutation with first column appended on the right
 echo >./ w"1 p #u
