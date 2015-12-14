@@ -1,7 +1,7 @@
 NB. reindeer olympics http://adventofcode.com/day/14
 
 m=: ".@> 3 8 16&{@;:;._2 fread {:ARGV
-f=: 4 : 's*(t*<.x%(t+r))+t<.(t+r)|x[''s t r''=.y'
+f=: 4 : 's*(t<.z|x)+t*<.x%z=.t+r[''s t r''=.y'
 echo >./ 2503&f"1 m
 echo >./ +/"1 (="1 >./) (>:i.2503)&f"1 m
 
