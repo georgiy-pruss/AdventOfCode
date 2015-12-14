@@ -1,11 +1,12 @@
-NB. Reindeer Olympics http://adventofcode.com/day/14
+NB. reindeer olympics http://adventofcode.com/day/14
 
-m=: ".&>"0 [3 6 13{"1 ' '&cut & > cutLF ('.',CR) -.~ fread {:ARGV
+m=: ".@> 3 8 16&{@;:;._2 fread {:ARGV
 f=: 4 : 's*(t*<.x%(t+r))+t<.(t+r)|x[''s t r''=.y'
-echo >./2503&f"1 m
+echo >./ 2503&f"1 m
 echo >./ +/"1 (="1 >./) (>:i.2503)&f"1 m
 
 exit 0
+
 
 0 : 0
 --- Day 14: Reindeer Olympics ---
