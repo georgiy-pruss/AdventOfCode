@@ -21,3 +21,4 @@ Some programs with short input don't require any external data.
 11.ijs next good password  
 12.ijs sum all numbers in JSON  
 13.ijs happy dinner (like 09)  
+14.ijs reindeer olympics  
