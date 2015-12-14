@@ -8,6 +8,7 @@ echo >./ +/"1 (="1 >./) (>:i.2503)&f"1 m
 exit 0
 
 NB. f=: +/ @ ($ ((1&{#{.) , {:#0:)) NB. but it works for part 1 only
+NB.      or     (#/ @ (_2]\]))   n1 v1 n2 [0]
 
 0 : 0
 --- Day 14: Reindeer Olympics ---
