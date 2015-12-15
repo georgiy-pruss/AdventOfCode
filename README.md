@@ -24,4 +24,4 @@ You can find the original task descriptions inside the ijs files, at the end, af
 12.ijs sum all numbers in JSON  
 13.ijs happy dinner (like 09)  
 14.ijs reindeer olympics  
-15.ijs perfect cookie  
+15.ijs perfect cookie (like 09 and 13)  
