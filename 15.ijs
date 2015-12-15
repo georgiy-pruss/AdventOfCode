@@ -1,8 +1,8 @@
 NB. perfect recipe http://adventofcode.com/day/15
 
 m=: ".@> 2 5 8 11 14&{@ ;:;._2 '-_'charsub fread {:ARGV
-f=:  [:*/[:0&>.[:+/  *
-f=:    */@(0&>.@(+/@:*))    NB. the same
+f=:  [:*/[:0&>.[:+/*
+f=:    */@(0&>.@(+/@:*))
 
 combs =: 3 : 0 NB. combinations of 4, total sum of y
   r=. 0 4$0 0 0 0
@@ -16,11 +16,17 @@ combs =: 3 : 0 NB. combinations of 4, total sum of y
   r
 )
 
+combs =: 3 : 0 NB. second variant of combs
+  odometer=. #: i.@(*/)    NB. and options -- by Joe Bogner
+  options=. (#~ (<&y1)@:(+/"1)) odometer 3#y1=.>:y
+  (y - +/"1 options),.options
+)
+
 cookie =: 4 : 0 NB. x - total weight & calories, y - ingr.
   m=. }:"1 y [ mc=. {:"1 y
   'w c'=.x
   mx=.0[mv=.0 0 0 0
-  for_v. combs w do. NB. 176851 = #combs 100
+  for_v. combs w do. NB. 176851 = combs 100
     if. c>0 do. if. c~:+/v*mc do. continue. end. end.
     mt=. v f m
     if. mx<mt do. mx=.mt[mv=.v end.
