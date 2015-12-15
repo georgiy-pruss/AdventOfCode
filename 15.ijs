@@ -1,8 +1,8 @@
 NB. perfect recipe http://adventofcode.com/day/15
 
 m=: ".@> 2 5 8 11 14&{@ ;:;._2 '-_'charsub fread {:ARGV
-f=:  [:*/[:0&>.[:+/*
-f=:    */@(0&>.@(+/@:*))
+f=:  [:*/[:0&>.[:+/  *
+f=:    */@(0&>.@(+/@:*))    NB. the same
 
 combs =: 3 : 0 NB. combinations of 4, total sum of y
   r=. 0 4$0 0 0 0
