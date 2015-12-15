@@ -16,7 +16,7 @@ combs =: 3 : 0 NB. combinations of 4, total sum of y
   r
 )
 
-combs =: 3 : 0 NB. second variant of combs
+combs =: 3 : 0 NB. second variant of combs, faster!
   odometer=. #: i.@(*/)    NB. and options -- by Joe Bogner
   options=. (#~ (<&y1)@:(+/"1)) odometer 3#y1=.>:y
   (y - +/"1 options),.options
