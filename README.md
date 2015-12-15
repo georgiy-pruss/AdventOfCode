@@ -10,7 +10,7 @@ Some programs with short input don't require any external data.
 
 You can find the original task descriptions inside the ijs files, at the end, after the code.
 
-Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html
+Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
 Other people's solutions are usually better (and more J-stylish) solutions than mine.
 
 01.ijs count '(' and ')'  
