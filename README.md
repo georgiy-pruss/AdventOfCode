@@ -8,7 +8,7 @@ My solutions are mainly in procedural style in J. I think the strict tacit appro
 Usually the programs require one command line argument -- data file, e.g. 01.ijs 01.txt  
 Some programs with short input don't require any external data.
 
-You can find full task descriptions inside the ijs files.
+You can find the original task descriptions inside the ijs files, at the end, after the code.
 
 01.ijs count '(' and ')'  
 02.ijs wrapping paper area and ribbon length  
