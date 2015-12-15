@@ -20,7 +20,7 @@ cookie =: 4 : 0 NB. x - total weight & calories, y - ingr.
   m=. }:"1 y [ mc=. {:"1 y
   'w c'=.x
   mx=.0[mv=.0 0 0 0
-  for_v. combs w do. NB. 176851 = combs 100
+  for_v. combs w do. NB. 176851 = #combs 100
     if. c>0 do. if. c~:+/v*mc do. continue. end. end.
     mt=. v f m
     if. mx<mt do. mx=.mt[mv=.v end.
