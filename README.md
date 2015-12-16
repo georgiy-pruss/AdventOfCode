@@ -25,7 +25,7 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [13.ijs](https://github.com/georgiy-pruss/AdventOfCode/blob/master/13.ijs) happy dinner (like 09)  
 [14.ijs](https://github.com/georgiy-pruss/AdventOfCode/blob/master/14.ijs) reindeer olympics  
 [15.ijs](https://github.com/georgiy-pruss/AdventOfCode/blob/master/15.ijs) perfect cookie (like 09 and 13)  
-[16.ijs](/georgiy-pruss/AdventOfCode/blob/master/16.ijs) too many aunts  
+[16.ijs](16.ijs) too many aunts  
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
 Other people's solutions are usually better (and more J-stylish) solutions than mine.
