@@ -10,9 +10,6 @@ Some programs with short input don't require any external data.
 
 You can find the original task descriptions inside the ijs files, at the end, after the code.
 
-Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
-Other people's solutions are usually better (and more J-stylish) solutions than mine.
-
 01.ijs count '(' and ')'  
 02.ijs wrapping paper area and ribbon length  
 03.ijs distribution of presents  
@@ -29,3 +26,6 @@ Other people's solutions are usually better (and more J-stylish) solutions than 
 14.ijs reindeer olympics  
 15.ijs perfect cookie (like 09 and 13)  
 16.ijs too many aunts  
+
+Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
+Other people's solutions are usually better (and more J-stylish) solutions than mine.
