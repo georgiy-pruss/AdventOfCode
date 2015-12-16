@@ -8,13 +8,13 @@ a=: ".@>@{: + (100 * c i. {.) NB. analyze 'name';num
 s=: 'children 3 cats 7 samoyeds 2 pomeranians 3 akitas 0 vizslas 0 goldfish 5 trees 3'
 p=: a"1 [_2]\ ;: s,' cars 2 perfumes 1' NB. 3 107 202 303 400 500 605 703 802 901
 
-e=: 3 : '*./ p e.~ a"1 [_2]\ 2}.y' NB. all in y* belongs to p
-echo (#~ e"1) t NB. |Sue|213|children|3|goldfish|5|vizslas|0|
+e=: 3 : '*./ x e.~ a"1 [_2]\ 2}.y' NB. all in y* belongs to x
+echo p (#~ e"1) t NB. |Sue|213|children|3|goldfish|5|vizslas|0|
 
 NB. 107 --> >107, 703 --> >703, 303 --> <303, 605 --> <605
 p=: 3 108 109 110 111 112 113 114 202 300 301 302 400 500
 p=: p,600 601 602 603 604 704 705 706 707 708 709 802 901
-echo (#~ e"1) t NB. |Sue|323|perfumes|1|trees|6|goldfish|0|
+echo p (#~ e"1) t NB. |Sue|323|perfumes|1|trees|6|goldfish|0|
 
 exit 0
 
