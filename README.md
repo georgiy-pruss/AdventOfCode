@@ -26,6 +26,7 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [14.ijs](14.ijs) reindeer olympics  
 [15.ijs](15.ijs) perfect cookie (like 09 and 13)  
 [16.ijs](16.ijs) too many aunts  
+[17.ijs](17.ijs) combinatorics again :(  
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
 Other people's solutions are usually better (and more J-stylish) solutions than mine.
