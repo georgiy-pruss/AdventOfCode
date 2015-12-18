@@ -1,7 +1,7 @@
 NB. Conway's Game of Life http://adventofcode.com/day/18
 t=: '#'= >cutLF CR-.~fread {:ARGV
 I=:<"1[_2]\<:(16#3)#:673424 NB. neighbour coords
-corners=: 3 : '1 (0 0;(0,<:{:$y);((<:#y),0);<:$y)}y'
+corners=: 1 (0 0;0 _1;_1 0;_1 _1)} ]
 step=: 4 : 0
   'r c'=. $ m=. 0,~0,0,"1~0,"1 y NB. expand y to have all borders 0
   n=.($y)$0
