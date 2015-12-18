@@ -3,10 +3,10 @@ t=: '#'= >cutLF CR-.~fread {:ARGV
 I=:<"1[_2]\<:(16#3)#:673424 NB. neighbour coords
 corners=: 1 (0 0;0 _1;_1 0;_1 _1)} ]
 step=: 4 : 0
-  'r c'=. $ m=. 0,~0,0,"1~0,"1 y NB. expand y to have all borders 0
-  n=.($y)$0
-  for_i. >:i.r-2 do.
-    for_j. >:i.c-2 do.
+  m=. 0,~0,0,.~0,.y NB. expand y to have empty borders
+  n=.('r c'=.$y)$0
+  for_i. >:i.r do.
+    for_j. >:i.c do.
       s=. +/(+&(i,j)&.>I){m
       if. s=3 do. v=.1 else. v=.(s=2)*.(<i,j){m end.
       n=.v (<<:i,j)} n
