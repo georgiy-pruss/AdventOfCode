@@ -28,6 +28,7 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [16.ijs](16.ijs) too many aunts  
 [17.ijs](17.ijs) combinatorics again :(  
 [18.ijs](18.ijs) game of life  
+[19.ijs](19.ijs) long molecule  
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
 Other people's solutions are usually better (and more J-stylish) solutions than mine.
