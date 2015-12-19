@@ -1,6 +1,7 @@
 NB. long molecule http://adventofcode.com/day/19
 
-t=: cutLF CR-.~fread {:ARGV
+t=: cutLF CR-.~fread {:ARGV NB. array of input lines
+
 subs=: (' '&cut@>) (+./@('=>'&E.@>) # ]) t NB. those with '=>'
 form=: ,>((40&<@#@>) # ]) t NB. the one very long (>40)
 
@@ -34,16 +35,12 @@ leads=: 4 : 0 NB. all subs out of y which could result into form x
   res
 )
 
-shorten=: 4 : 0 NB. apply pair x=(i,p) to string form {.y, i.e. back conversion
-  'idx pos'=.>x [ 'form subs'=.y
-  'old xxx new'=. idx{subs
-  subst form;pos;(#new);old
-)
-
 doit=: 4 : 0 NB. x - depth
   'form subs'=.y
   for_ip. form leads subs do. NB. for all candidate pairs
-    newform=.ip shorten y
+    'idx pos'=. >ip
+    'old xxx new'=. idx{subs
+    newform=. subst form;pos;(#new);old
     if. 1=#newform do. if. (,'e')-:newform do. >:x return. end. end.
     if. n=. (>:x) doit newform;<subs do. n return. end.
   end.
