@@ -40,8 +40,6 @@ shorten=: 4 : 0 NB. apply pair x=(i,p) to string form {.y, i.e. back conversion
   subst form;pos;(#new);old
 )
 
-minf=:1000
-
 doit=: 4 : 0 NB. x - depth
   'form subs'=.y
   for_ip. form leads subs do. NB. for all candidate pairs
