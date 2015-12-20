@@ -4,7 +4,7 @@ NB. see wolframalpha.com -> DivisorSigma and https://oeis.org/A000203
 NB. f=: 3 : '+/(0=n|y)#n=.>:i.y' NB. simple but inefficient
 f=: 3 : '((y=*:{:n)*{:n) -~ (+/<.y%a) + +/ a=. (0=n|y) # n=. >:i. <.%:y'
 
-g=: 3 : '+/ (b>:y%50) # b=. <. y%a=. (0=n|y) # n=. >:i. <.%:y'
+g=: 3 : '+/ (b>:y%50) # b=. <. y%a=. (0=n|y) # n=. >:i. <.%:y' NB. >50 only
 
 find_least=: 1 : 0 NB. f find_least n
   NB. mx=.0 --- this is for showing progress only
@@ -16,8 +16,8 @@ find_least=: 1 : 0 NB. f find_least n
   0
 )
 
-echo (3 :'(":y),'' -> '',":f y') f find_least <.34000000%10 NB. 786240 -> 3413760
-echo (3 :'(":y),'' -> '',":g y') g find_least <.34000000%11 NB. 831600 -> 3252746
+echo (3 :'(":y),'' -> '',":10*f y') f find_least <.34000000%10 NB. 786240 -> 34137600
+echo (3 :'(":y),'' -> '',":11*g y') g find_least <.34000000%11 NB. 831600 -> 35780206
 
 exit 0
 
