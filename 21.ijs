@@ -51,7 +51,7 @@ battle=: 4 : 0
 NB. 100 h, 1 w, 0-1 a, 0-2 r
 
 tryall=: 3 : 0
-  p1=. 999 [ p2=. 0
+  p1=. 999 [ p2=. 0 NB. min for win, max for lose
   for_pw. 1{"1 w do.
     NB. w/o armor
     if. boss battle 100,(}.>pw)
