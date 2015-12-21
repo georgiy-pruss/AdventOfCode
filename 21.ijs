@@ -4,12 +4,10 @@ HitPoints=: 109
 Damage=: 8
 Armor=: 2
 
-boss=: HitPoints,Damage,Armor
-
-parsecol1=: 3 : '((<a:;1)}&y) ".&.> 1{"1 y'
+boss=: HitPoints, Damage, Armor
 
 NB. Weapons: Cost Damage  Armor
-w=: 0 : 0
+sw=: 0 : 0
 Dagger        8     4       0
 Shortsword   10     5       0
 Warhammer    25     6       0
@@ -17,7 +15,7 @@ Longsword    40     7       0
 Greataxe     74     8       0
 )
 NB. Armor:  Cost  Damage  Armor
-a=: 0 : 0
+sa=: 0 : 0
 Leather      13     0       1
 Chainmail    31     0       2
 Splintmail   53     0       3
@@ -25,7 +23,7 @@ Bandedmail   75     0       4
 Platemail   102     0       5
 )
 NB. Rings:  Cost  Damage  Armor
-r=: 0 : 0
+sr=: 0 : 0
 DamageP1     25     1       0
 DamageP2     50     2       0
 DamageP3    100     3       0
@@ -34,9 +32,11 @@ DefenseP2    40     0       2
 DefenseP3    80     0       3
 )
 
-w=: parsecol1 ;:> cutLF w
-a=: parsecol1 ;:> cutLF a
-r=: parsecol1 ;:> cutLF r
+parsecol1=: ".@>@(1&{"1) NB. leave only numbers
+
+w=:    parsecol1 ;:> cutLF sw
+a=: 0, parsecol1 ;:> cutLF sa NB. add 'zero' armor
+r=: 0, parsecol1 ;:> cutLF sr NB. add 'zero' ring
 
 battle=: 4 : 0
   'bh bd ba'=.x NB. boss
@@ -48,46 +48,14 @@ battle=: 4 : 0
   ph>0 NB. player the winner!
 )
 
-NB. 100 h, 1 w, 0-1 a, 0-2 r
-
-NB. A good suggesion from someone - just add "zero" armor and "zero" ring. Then it's just
-NB. 5x6x(7x7-6) varians in four simple loops. Maybe I'll do it later...
-
-tryall=: 3 : 0
+tryall=: 3 : 0 NB. solve two parts at once
   p1=. 999 [ p2=. 0 NB. min for win, max for lose
-  for_pw. 1{"1 w do.
-    NB. w/o armor
-    if. boss battle 100,(}.>pw)
-    do. p1=.p1<.({.>pw) else. p2=.p2>.({.>pw) end.
-    NB. w/o armor with a ring
-    for_pr. 1{"1 r do.
-      if. boss battle 100,(}.>pw)+(}.>pr)
-      do. p1=.p1<.({.>pw)+({.>pr) else. p2=.p2>.({.>pw)+({.>pr) end.
-      NB. with two rings
-      for_pq. 1{"1 r do.
-        if. pr=pq do. continue. end.
-        if. boss battle 100,(}.>pw)+(}.>pr)+(}.>pq)
-        do. p1=.p1<.({.>pw)+({.>pr)+({.>pq) else. p2=.p2>.({.>pw)+({.>pr)+({.>pq) end.
-      end.
-    end.
-    NB. with armor
-    for_pa. 1{"1 a do.
-      if. boss battle 100,(}.>pw)+(}.>pa)
-      do. p1=.p1<.({.>pw)+({.>pa) else. p2=.p2>.({.>pw)+({.>pa) end.
-      NB. with a ring
-      for_pr. 1{"1 r do.
-        if. boss battle 100,(}.>pw)+(}.>pa)+(}.>pr)
-        do. p1=.p1<.({.>pw)+({.>pa)+({.>pr) else. p2=.p2>.({.>pw)+({.>pa)+({.>pr) end.
-        NB. with two rings
-        for_pq. 1{"1 r do.
-          if. pr=pq do. continue. end.
-          if. boss battle 100,(}.>pw)+(}.>pa)+(}.>pr)+(}.>pq)
-          do. p1=.p1<.({.>pw)+({.>pa)+({.>pr)+({.>pq)
-          else. p2=.p2>.({.>pw)+({.>pa)+({.>pr)+({.>pq) end.
-        end.
-      end.
-    end.
-  end.
+  for_pw. w do. for_pa. a do. for_pr. r do. for_pq. r do. NB. loop for all
+    if. (-.0 0 0-:pr) *. pr-:pq do. continue. end. NB. both same rings - ignore
+    if. boss battle 100,(}.>pw)+(}.>pa)+(}.>pr)+(}.>pq)
+    do.   p1=.p1 <. ({.>pw)+({.>pa)+({.>pr)+({.>pq)
+    else. p2=.p2 >. ({.>pw)+({.>pa)+({.>pr)+({.>pq) end.
+  end. end. end. end.
   p1,p2
 )
 
