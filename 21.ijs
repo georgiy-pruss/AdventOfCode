@@ -59,7 +59,7 @@ tryall=: 3 : 0 NB. solve two parts at once
   p1,p2
 )
 
-echo tryall _
+echo tryall _ NB. all 1290 games ((#w)*(#a)*((_1+#r)-~(#r)*(#r)))
 
 exit 0
 
