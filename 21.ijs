@@ -52,9 +52,9 @@ tryall=: 3 : 0 NB. solve two parts at once
   p1=. 999 [ p2=. 0 NB. min for win, max for lose
   for_pw. w do. for_pa. a do. for_pr. r do. for_pq. r do. NB. loop for all
     if. (-.0 0 0-:pr) *. pr-:pq do. continue. end. NB. both same rings - ignore
-    if. boss battle 100,(}.>pw)+(}.>pa)+(}.>pr)+(}.>pq)
-    do.   p1=.p1 <. ({.>pw)+({.>pa)+({.>pr)+({.>pq)
-    else. p2=.p2 >. ({.>pw)+({.>pa)+({.>pr)+({.>pq) end.
+    if. boss battle 100,(}.pw)+(}.pa)+(}.pr)+(}.pq)
+    do.   p1=.p1 <. ({.pw)+({.pa)+({.pr)+({.pq)
+    else. p2=.p2 >. ({.pw)+({.pa)+({.pr)+({.pq) end.
   end. end. end. end.
   p1,p2
 )
