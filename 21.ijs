@@ -51,7 +51,7 @@ battle=: 4 : 0
 NB. 100 h, 1 w, 0-1 a, 0-2 r
 
 NB. A good suggesion from someone - just add "zero" armor and "zero" ring. Then it's just
-NB. 5x6x(7x7-6) varians in four simple loops. OK, the idea is clear, I won't implement it.
+NB. 5x6x(7x7-6) varians in four simple loops. Maybe I'll do it later...
 
 tryall=: 3 : 0
   p1=. 999 [ p2=. 0 NB. min for win, max for lose
