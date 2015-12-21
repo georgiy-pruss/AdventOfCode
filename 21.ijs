@@ -41,9 +41,9 @@ r=: 0, parsecol1 ;:> cutLF sr NB. add 'zero' ring
 battle=: 4 : 0 NB. boss vs player; 1 if player wins
   'bh bd ba'=.x NB. boss
   'ph pd pa'=.y NB. player
-  whilst. (ph>0) *. bh>0 do.
-    bh=.bh-1>.pd-ba NB. click
-    ph=.ph-1>.bd-pa NB. clack
+  while. do.
+    if. 0>: bh=.bh-1>.pd-ba do. break. end. NB. click
+    if. 0>: ph=.ph-1>.bd-pa do. break. end. NB. clack
   end.
   ph>0 NB. player is alive!
 )
