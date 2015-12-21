@@ -6,15 +6,7 @@ f=: 3 : '((y=*:{:n)*{:n) -~ (+/<.y%a) + +/ a=. (0=n|y) # n=. >:i. <.%:y'
 
 g=: 3 : '+/ (b>:y%50) # b=. <. y% (0=n|y) # n=. >:i. <.%:y' NB. >50 only
 
-find_least=: 1 : 0 NB. f find_least n
-  NB. mx=.0 --- this is for showing progress only
-  for_num. 1000+i.1000000 do.
-    NB. if. 0=10000|n do. echo (":n),' ',(":mx) end.
-    if. y <: u num do. num return. end.
-    NB. if. m>mx do. mx=.m end. --- and "<: m=. u" above
-  end.
-  0
-)
+find_least=: 1 : 'for_i. >:i.1000000 do. if. y <: u i do. i return. end. end. 0'
 
 echo (":,' -> ',[:":10*f) f find_least <.34000000%10 NB. 786240 -> 34137600
 echo (":,' -> ',[:":11*g) g find_least <.34000000%11 NB. 831600 -> 35780206
