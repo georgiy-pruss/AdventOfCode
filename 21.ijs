@@ -88,7 +88,7 @@ tryall=: 3 : 0
   p1,p2
 )
 
-echo tryall 0
+echo tryall _
 
 exit 0
 
