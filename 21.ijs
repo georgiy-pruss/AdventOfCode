@@ -38,23 +38,23 @@ w=:    parsecol1 ;:> cutLF sw
 a=: 0, parsecol1 ;:> cutLF sa NB. add 'zero' armor
 r=: 0, parsecol1 ;:> cutLF sr NB. add 'zero' ring
 
-battle=: 4 : 0
+battle=: 4 : 0 NB. boss vs player; 1 if player wins
   'bh bd ba'=.x NB. boss
   'ph pd pa'=.y NB. player
   whilst. (ph>0) *. bh>0 do.
     bh=.bh-1>.pd-ba NB. click
     ph=.ph-1>.bd-pa NB. clack
   end.
-  ph>0 NB. player the winner!
+  ph>0 NB. player is alive!
 )
 
 tryall=: 3 : 0 NB. solve two parts at once
   p1=. 999 [ p2=. 0 NB. min for win, max for lose
   for_pw. w do. for_pa. a do. for_pr. r do. for_pq. r do. NB. loop for all
     if. (-.0 0 0-:pr) *. pr-:pq do. continue. end. NB. both same rings - ignore
+    price=. ({.pw)+({.pa)+({.pr)+({.pq)
     if. boss battle 100,(}.pw)+(}.pa)+(}.pr)+(}.pq)
-    do.   p1=.p1 <. ({.pw)+({.pa)+({.pr)+({.pq)
-    else. p2=.p2 >. ({.pw)+({.pa)+({.pr)+({.pq) end.
+    do. p1=.p1 <. price else. p2=.p2 >. price end.
   end. end. end. end.
   p1,p2
 )
