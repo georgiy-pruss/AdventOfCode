@@ -39,13 +39,13 @@ a=: parsecol1 ;:> cutLF a
 r=: parsecol1 ;:> cutLF r
 
 battle=: 4 : 0
-  'bh bd ba'=.x
-  'ph pd pa'=.y
+  'bh bd ba'=.x NB. boss
+  'ph pd pa'=.y NB. player
   whilst. (ph>0) *. bh>0 do.
-    bh=.bh-1>.pd-ba
-    ph=.ph-1>.bd-pa
+    bh=.bh-1>.pd-ba NB. click
+    ph=.ph-1>.bd-pa NB. clack
   end.
-  ph>0
+  ph>0 NB. player the winner!
 )
 
 NB. 100 h, 1 w, 0-1 a, 0-2 r
