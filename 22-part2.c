@@ -1,3 +1,5 @@
+// wizard rpg http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22-part2.c && a.exe
+
 #include <stdio.h>
 #include <string.h>
 
@@ -36,10 +38,8 @@ int run( char* y ) __
 
 int main() __
   const char T[] = "MDSPRX";
-  char v[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
-  int t;
-  char min_v[12]={0,0,0,0,0,0,0,0,0,0,0,0};
-  int min_t=9999;
+  char v[12] = {0,0,0,0,0,0,0,0,0,0,0,0}; char min_v[12]={0,0,0,0,0,0,0,0,0,0,0,0};
+  int t;                                  int min_t=9999;
   for( int c1=0; c1<6; ++c1 ) __
     v[0]=T[c1];
     for( int c2=0; c2<6; ++c2 ) __
@@ -63,5 +63,5 @@ int main() __
                       t = run( v );
                       if( t>0 && t<min_t ) { min_t=t; strcpy(min_v,v); }
   _ _ _ _ _ _ _ _ _ _
-  printf( "\n%s %d\n", min_v, min_t );
+  printf( "\n%s %d\n", min_v, min_t ); // PDSSMPPPMM 1289
   return 0; _
