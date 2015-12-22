@@ -44,6 +44,7 @@ turn=: 4 : 0 NB. x: state, y: '0' or spell to choose 'MDSPR'
     echo state=. state turnb 0
   end.
 )
+
 0 : 0
 21 10 0 14 8 0 0 5
 122 2 0 14 8 0 0 4
@@ -56,7 +57,9 @@ turn=: 4 : 0 NB. x: state, y: '0' or spell to choose 'MDSPR'
 114 1 0 2 8 0 4 0
 1
 )
+
 exit''
+
 run=: 3 : 0
   s=. 500 50 0  55 8  0 0 0  NB. mana hits armor  b-hits b-damage  sh po re
   for_c. y do.
