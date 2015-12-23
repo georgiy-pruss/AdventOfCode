@@ -31,7 +31,7 @@ run=: 3 : 0
 )
 
 main=: 3 : 0 NB. y>0 for printing all solutions
-  t0=.6!:1'' [ mn=.9999 [ mv=.9$_1 NB. minimum total spent and its spell vector
+  t0=.6!:1'' [ mn=.9999 [ mv=.9$9 NB. minimum total spent and its spell vector
   NB. 12/23 I removed '0' out of combination to get rid of 'zero' spell
   hh=.>:5 5 5 5#:i.5*5*5*5      NB. same performans as nested loops
   tt=.>:5 5 5 5 5#:i.5*5*5*5*5  NB. just a bit shorter text
