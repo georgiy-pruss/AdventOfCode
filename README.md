@@ -33,8 +33,9 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [19.ijs](19.ijs) long molecule (very bad problem)   
 [20.ijs](20.ijs) infinite elves (OEIS A000203)  
 [21.ijs](21.ijs) rpg simulation  
-[22.ijs](22.ijs) wizard rpg (part 1 only yet)  
-[22-part2.c](22-part2.c) part 2 is in C  
+[22a.ijs](22a.ijs) wizard rpg (part 1)  
+[22b.ijs](22b.ijs) wizard rpg (part 2)  
+[22b.c](22.c) wizard rpg (part 2) in C  
 [23.ijs](23.ijs) simple processor (Collatz conjecture)  
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
