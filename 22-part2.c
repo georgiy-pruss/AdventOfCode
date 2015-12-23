@@ -38,7 +38,7 @@ int run( int* ww, int k ) __
   return 0; _
 
 int main() __
-  int v[11] = {0}; int min_v[11]={0};
+  int v[10] = {0}; int min_v[10]={0};
   int t; int min_t=9999;
   #define DO(z) for(z=X;z<=R;++z)__
   DO(v[0]) DO(v[1]) DO(v[2])
@@ -47,5 +47,5 @@ int main() __
       t = run( v, 10 );
       if( t>0 && t<min_t ) { min_t=t; memcpy(min_v,v,sizeof(v)); } _ _ _ _ _ _ _ _ _ _
   long long m=0; for(int i=0;i<10;++i) m=m*10+min_v[i]; // convert to a number for print
-  printf( "\n%lld %d\n", m, min_t ); // 4002014000 1289
+  printf( "%lld %d\n", m, min_t ); // 4002014000 1289
   return 0; _
