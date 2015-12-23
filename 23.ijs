@@ -8,16 +8,14 @@ i=: (3 : '(>C i.{.y),(>R i.1{y),".>{:y')"1 t NB. instructions
 
 exec=: 4 : 0 NB. x - registers a & b, y - instructions
   ip=.0 [ ab=.x [ n=.#y
-  while. ip>:0 do. if. ip>:n do. break. end.
-    'c r o' =. >ip{y NB. op-code register offset
+  while. ip>:0 do. if. ip>:n do. break. end. io=.1 NB. default offset
+    v=.r{ab [ 'c r o' =. >ip{y NB. op-code register offset
     select. c
-    case. 0 do. ip=.ip+o
-    case. 1 do. if. 1=    r{ab do. ip=.ip+o else. ip=.>:ip end.
-    case. 2 do. if. 0= 2| r{ab do. ip=.ip+o else. ip=.>:ip end.
-    case. 3 do. ab=. (<.-:r{ab) r}ab [ ip=.>:ip
-    case. 4 do. ab=. (3*  r{ab) r}ab [ ip=.>:ip
-    case. 5 do. ab=. (>:  r{ab) r}ab [ ip=.>:ip
+    case. 0 do.               io=.o      case. 3 do. ab=.(<.-:v) r}ab
+    case. 1 do. if. 1=  v do. io=.o end. case. 4 do. ab=.(3*  v) r}ab
+    case. 2 do. if. 0=2|v do. io=.o end. case. 5 do. ab=.(>:  v) r}ab
     end.
+    ip=.ip+io NB. advance instruction pointer
   end.
   ab
 )
