@@ -9,7 +9,6 @@ i=: (3 : '(>C i.{.y),(>R i.1{y),".>{:y')"1 t NB. instructions
 exec=: 4 : 0 NB. x - registers a & b, y - instructions
   ip=.0 [ ab=.x [ n=.#y
   while. ip>:0 do. if. ip>:n do. break. end.
-    NB. echo (":ip),' -- ',(1{":ip{t)
     'c r o' =. >ip{y NB. op-code register offset
     select. c
     case. 0 do. ip=.ip+o
@@ -19,7 +18,6 @@ exec=: 4 : 0 NB. x - registers a & b, y - instructions
     case. 4 do. ab=. (3*  r{ab) r}ab [ ip=.>:ip
     case. 5 do. ab=. (>:  r{ab) r}ab [ ip=.>:ip
     end.
-    NB. echo 'ab: ',(":ab),' ip: ',":ip
   end.
   ab
 )
