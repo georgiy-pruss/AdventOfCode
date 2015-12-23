@@ -1,72 +1,65 @@
+NB. wizard rpg http://adventofcode.com/day/22
 0 : 0
-  Boss:   Hits: 55 Damage: 8
-  Spells: MagicM:    53 immed damage:4
-          Drain:     73 immed damage:2 hits:+2
-          Shield:   113 pre   turns:6 armor:+6
-          Poison:   173 post  turns:6 damage:3
-          Recharge: 229 post  turns:5 mana:+101
-  Hero:   Mana: 500 hits:50
+  Spells:
+    0 Zero:       0
+    1 MagicM:    53 immed damage:4
+    2 Drain:     73 immed damage:2 hits:+2
+    3 Shield:   113 pre   turns:6 armor:+6
+    4 Poison:   173 post  turns:6 damage:3
+    5 Recharge: 229 post  turns:5 mana:+101
+  Boss: Hits: 55 Damage: 8
+  Hero: Mana: 500 hits: 50 armor: 0 NB. we hardcode armor
 )
 
-turnb=: 4 : 0 NB. x: state, y: ignore
-  'm h a b p sh po re'=.x
+doubleturn=: 4 : 0 NB. x: state, y: 0-5 spell to choose (ZMDSPR)
+  'm h b d sh po re t'=.x [ a=.0
   if. sh>0 do. sh=.<:sh if. sh>0 do. a=.a+7 end. end.
   if. re>0 do. m=.m+101 [ re=.<:re end.
-  if. po>0 do. b=.b-3 [ po=.<:po end.
-  if. b<:0 do. m,1 return. end. NB. Player won
-  h=.h-1>.(p-a)
-  if. h<:0 do. 0 return. end. NB. Boss won
-  m,h,0,b,p,sh,po,re
-)
-
-turn=: 4 : 0 NB. x: state, y: '0' or spell to choose 'MDSPR'
-  'm h a b p sh po re'=.x
-  NB. if. 0>:h=.h-1 do. 0 return. end. NB. hard mode
-  if. sh>0 do. sh=.<:sh if. sh>0 do. a=.a+7 end. end.
-  if. re>0 do. m=.m+101 [ re=.<:re end.
-  if. po>0 do. b=.b-3 [ po=.<:po end.
+  if. po>0 do. b=.b-3 [ po=.<:po if. b<:0 do. t return. end. end.
   select. y
-  case.'M' do. if. m>:53 do. m=.m-53 [ b=.b-4 end.
-  case.'D' do. if. m>:73 do. m=.m-73 [ b=.b-2 [ h=.h+2 end.
-  case.'S' do. if. (m>:113)*.sh=0 do. m=.m-113 [ sh=.6 end.
-  case.'P' do. if. (m>:173)*.po=0 do. m=.m-173 [ po=.6 end.
-  case.'R' do. if. (m>:229)*.re=0 do. m=.m-229 [ re=.5 end.
+  case.1 do. if. m>:53 do. m=.m-53 [ t=.t+53 [ b=.b-4 end.
+  case.2 do. if. m>:73 do. m=.m-73 [ t=.t+73 [ b=.b-2 [ h=.h+2 end.
+  case.3 do. if. (m>:113)*.sh=0 do. m=.m-113 [ t=.t+113 [ sh=.6 end.
+  case.4 do. if. (m>:173)*.po=0 do. m=.m-173 [ t=.t+173 [ po=.6 end.
+  case.5 do. if. (m>:229)*.re=0 do. m=.m-229 [ t=.t+229 [ re=.5 end.
   end.
-  if. b<:0 do. m,1 return. end. NB. Player won
-  m,h,0,b,p,sh,po,re
+  if. b<:0 do. t return. end. NB. Player won
+  a=.0 NB. Now it's boss's turn
+  if. sh>0 do. sh=.<:sh if. sh>0 do. a=.a+7 end. end.
+  if. re>0 do. m=.m+101 [ re=.<:re end.
+  if. po>0 do. b=.b-3 [ po=.<:po if. b<:0 do. t return. end. end.
+  h=.h-1>.(d-a)
+  if. h<:0 do. 0 return. end. NB. Boss won
+  m,h,b,d,sh,po,re,t NB. return state for next turns
 )
 
 run=: 3 : 0
-  s=. 500 50 0  55 8  0 0 0  NB. mana hits armor  b-hits b-damage  sh po re
+  s=. 500 50  55 8  0 0 0  0  NB. mana hits  b-hits b-damage  sh po re  total
   for_c. y do.
-    if. 2=# s=. s turn  c do. {.s return. elseif. 1=#s do. 0 return. end.
-    if. 2=# s=. s turnb 0 do. {.s return. elseif. 1=#s do. 0 return. end.
+    if. 1=# s=. s doubleturn c do. s return. end.
   end.
-  0
+  0 NB. no wins for player
 )
 
-main=: 3 : 0
-  m=.0
-  for_c1. 'MDSPRX' do.
-    for_c2. 'MDSPRX' do.
-      for_c3. 'MDSPRX' do.
-        for_c4. 'MDSPRX' do.
-          for_c5. 'MDSPRX' do.
-            ((c=.c1,c2,c3,c4,c5),CR) 1!:2[4
-            for_c6. 'MDSPRX' do.
-              for_c7. 'MDSPRX' do.
-                for_c8. 'MDSPRX' do.
-                  for_c9. 'MDSPRX' do.
-                    t=.run c,z=.c6,c7,c8,c9
-                    if. t>0 do. t;c,z return. end.
-                    NB. m=. m >. ...
-  end. end. end. end. end. end. end. end. end.
-  m
+main=: 3 : 0 NB. y>0 for printing all solutions
+  mn=.9999 [ mv=.9$_1 [ sbn=.9999 [ sbv=.9$_1 NB. min and second best
+  hh=.6|>:6 6 6 6#:i.6*6*6*6      NB. same performans as nested loops
+  tt=.6|>:6 6 6 6 6#:i.6*6*6*6*6  NB. just a bit shorter text
+  for_h. hh do. NB. ~head
+    ((":h),(5j0":mn),CR) 1!:2[4   NB. show progress...
+    for_t. tt do. NB. ~tail
+      if. 0< n=. run h,t do.
+        if. y>0 do. echo (":h,t),' - ',":n end. NB. show all solutions
+        if. n<mn do. mn=.n [ mv=.h,t [ sbn=.mn [ sbv=.mv end.
+      end.
+    end. NB. ... total 1296*7776 runs i.e. 10,077,696 games :)
+  end.
+  2 2$sbt;sbv;mt;mv NB. return the best and second best
 )
-
-echo LF,":main ''
-
-NB. MPRMSPMMM -- (53*5)+(2*173)+113+229 -- 953
+               NB.      M P R M S P M M M
+start=:6!:1''  NB. |953|1 4 5 1 3 4 1 1 1| - without skips, "the" answer
+echo main 0    NB. |914|4 4 5 4 1 3 4 3 3| - with 0 or not enough mana
+echo (6!:1'')-start NB. 1656 sec = 28 min zzzzzzzzzzzzzzzzzzzz
 
 exit 0
 
