@@ -60,7 +60,7 @@ main=: 3 : 0
                     t=.run c,z=.c6,c7,c8,c9
                     if. t>0 do. t;c,z return. end.
                     NB. m=. m >. ...
-  end. end. end. end.end. end. end. end. end.
+  end. end. end. end. end. end. end. end. end.
   m
 )
 
