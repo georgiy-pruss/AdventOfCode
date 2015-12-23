@@ -1,4 +1,4 @@
-// wizard rpg http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22-part2.c && a.exe
+// wizard rpg pt2 http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22-part2.c && a.exe
 
 #include <stdio.h>
 #include <string.h>
@@ -8,7 +8,6 @@
 
 // State: mana hits armor  b-hits b-damage  shield poison recharge  total-spent
 typedef struct St { int m,h,a, b,d, sh,po,re, t; } State;
-
 enum {O,X,M,D,S,P,R,B}; // spell coding; X-empty, B-it's boss' turn, O-like '\0', eos
 
 int turn( State* s, int w ) __ // w: which spell to choose
