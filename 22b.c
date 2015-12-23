@@ -1,4 +1,4 @@
-// wizard rpg pt2 http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22-part2.c && a.exe
+// wizard rpg part2 http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22b.c && a.exe
 
 #include <stdio.h>
 #include <string.h>
@@ -39,7 +39,7 @@ int run( int* ww, int k ) __
 int main() __
   int v[10] = {0}; int min_v[10]={0};
   int t; int min_t=9999;
-  #define DO(z) for(z=X;z<=R;++z)__
+  #define DO(z) for(z=M;z<=R;++z)__
   DO(v[0]) DO(v[1]) DO(v[2])
     printf( "%d%d%d....... %d\r", v[0],v[1],v[2], min_t ); fflush(stdout);
     DO(v[3]) DO(v[4]) DO(v[5]) DO(v[6]) DO(v[7]) DO(v[8]) DO(v[9])
