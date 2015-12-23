@@ -8,6 +8,7 @@
 
 // State: mana hits armor  b-hits b-damage  shield poison recharge  total-spent
 typedef struct St { int m,h,a, b,d, sh,po,re, t; } State;
+
 enum {O,X,M,D,S,P,R,B}; // spell coding; X-empty, B-it's boss' turn, O-like '\0', eos
 
 int turn( State* s, int w ) __ // w: which spell to choose
@@ -38,7 +39,7 @@ int run( int* ww ) __
   return 0; _
 
 int main() __
-  int v[12] = {0}; int min_v[12]={0};
+  int v[11] = {0}; int min_v[11]={0};
   int t; int min_t=9999;
   for( int c1=X; c1<=R; ++c1 ) __
     v[0]=c1;
@@ -59,7 +60,7 @@ int main() __
                   for( int c9=X; c9<=R; ++c9 ) __
                     v[8]=c9;
                     for( int cA=X; cA<=R; ++cA ) __
-                      v[9]=cA; v[10]=O;
+                      v[9]=cA;
                       t = run( v );
                       if( t>0 && t<min_t ) { min_t=t; memcpy(min_v,v,sizeof(v)); }
   _ _ _ _ _ _ _ _ _ _
