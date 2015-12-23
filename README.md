@@ -8,6 +8,8 @@ My solutions are mainly in procedural style in J. I think the strict tacit appro
 Usually the programs require one command line argument -- data file, e.g. 01.ijs 01.txt  
 Some programs with short input don't require any external data.
 
+No using regexp or built-in interpreter!
+
 You can find the original task descriptions inside the ijs files, at the end, after the code.
 
 [01.ijs](01.ijs) count '(' and ')'  
