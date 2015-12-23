@@ -35,6 +35,7 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [21.ijs](21.ijs) rpg simulation  
 [22.ijs](22.ijs) wizard rpg (part 1 only yet)  
 [22-part2.c](22-part2.c) part 2 is in C  
+[23.ijs](23.ijs) simple processor (Collatz conjecture)  
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
 Other people's solutions are usually better (and more J-stylish) solutions than mine.
