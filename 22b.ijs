@@ -32,8 +32,7 @@ run=: 3 : 0
 )
 
 main=: 3 : 0 NB. y>0 for printing all solutions
-  t0=.6!:1'' [ mn=.9999 [ mv=.9$_1 NB. minimum total spent and its spell vector
-  sbn=.9999 [ sbv=.9$_1 NB. second best
+  t0=.6!:1'' [ mn=.9999 [ mv=.9$9 NB. minimum total spent and its spell vector
   NB. removed '0' out of combination to get rid of 'zero' spell
   hh=.>:5 5 5 5#:i.5*5*5*5      NB. same performans as nested loops
   tt=.>:5 5 5 5 5#:i.5*5*5*5*5  NB. just a bit shorter text
@@ -43,17 +42,17 @@ main=: 3 : 0 NB. y>0 for printing all solutions
       for_t. tt do. NB. ~tail
         if. 0< n=. run h,t do.
           if. y>0 do. echo (":h,t),' - ',":n end. NB. show all solutions
-          if. n<mn do. mn=.n [ mv=.h,t [ sbn=.mn [ sbv=.mv end.
+          if. n<mn do. mn=.n [ mv=.h,t end.
         end.
       end.
     end.
   catch.
     echo LF
   end.
-  sbn;sbv;mn;mv;t0-~6!:1'' NB. return minimum, spells, time elapsed
-  2 2$mn;mv NB. return the second best and the best
+  mn;mv;t0-~6!:1'' NB. return minimum, spells, time elapsed
 )
 
-echo main 1 NB. 1289 - 4 2 5 4 3 5 4 2 1 1    1000 sec
+echo main 0 NB. 1289 - 4 2 5 4 3 5 4 2 1 1 - 245/191 sec
 
 exit 0
+
