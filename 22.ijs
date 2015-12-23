@@ -54,7 +54,7 @@ main=: 3 : 0 NB. y>0 for printing all solutions
       end.
     end. NB. ... total 1296*7776 runs i.e. 10,077,696 games :)
   end.
-  2 2$sbt;sbv;mt;mv NB. return the best and second best
+  2 2$sbn;sbv;mn;mv NB. return the best and second best
 )
                NB.      M P R M S P M M M
 start=:6!:1''  NB. |953|1 4 5 1 3 4 1 1 1| - without skips, "the" answer
