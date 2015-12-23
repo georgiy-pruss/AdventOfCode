@@ -36,30 +36,6 @@ turn=: 4 : 0 NB. x: state, y: '0' or spell to choose 'MDSPR'
   m,h,0,b,p,sh,po,re
 )
 
-3 : 0 '' NB. test
-  state=. 250 10 0  14 8  0 0 0
-  for_c. 'RSDPM' do.
-    echo state=. state turn c
-    if. 2>:#state do. return. end.
-    echo state=. state turnb 0
-  end.
-)
-
-0 : 0
-21 10 0 14 8 0 0 5
-122 2 0 14 8 0 0 4
-110 2 0 14 8 6 0 3
-211 1 0 14 8 5 0 2
-239 3 0 12 8 4 0 1
-340 2 0 12 8 3 0 0
-167 2 0 12 8 2 6 0
-167 1 0 9 8 1 5 0
-114 1 0 2 8 0 4 0
-1
-)
-
-exit''
-
 run=: 3 : 0
   s=. 500 50 0  55 8  0 0 0  NB. mana hits armor  b-hits b-damage  sh po re
   for_c. y do.
@@ -82,26 +58,15 @@ main=: 3 : 0
                 for_c8. 'MDSPRX' do.
                   for_c9. 'MDSPRX' do.
                     t=.run c,z=.c6,c7,c8,c9
-                    if. t>0 do.
-                      t;c,z return. end.
-                    NB. m=.m>.
-                  end.
-                end.
-              end.
-            end.
-          end.
-        end.
-      end.
-    end.
-  end.
+                    if. t>0 do. t;c,z return. end.
+                    NB. m=. m >. ...
+  end. end. end. end.end. end. end. end. end.
   m
 )
 
 echo LF,":main ''
 
-NB. 52|MPRMSPMMM
-NB.   (53*5)+(2*173)+113+229
-NB. 953
+NB. MPRMSPMMM -- (53*5)+(2*173)+113+229 -- 953
 
 exit 0
 
