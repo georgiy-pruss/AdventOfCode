@@ -46,5 +46,5 @@ int main() __
       t = run( v, 10 );
       if( t>0 && t<min_t ) { min_t=t; memcpy(min_v,v,sizeof(v)); } _ _ _ _ _ _ _ _ _ _
   long long m=0; for(int i=0;i<10;++i) m=m*10+min_v[i]; // convert to a number for print
-  printf( "%lld %d\n", m, min_t ); // 4002014000 1289
+  printf( "%lld %d\n", m, min_t ); // 4002014000 1289 ... 1256 ... 4254354200 1236
   return 0; _
