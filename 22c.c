@@ -1,4 +1,4 @@
-// wizard rpg part2 http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22b.c && a.exe
+// wizard rpg part2 http://adventofcode.com/day/22 *** gcc -std=c99 -O2 22c.c && a.exe
 
 #include <stdio.h>
 
