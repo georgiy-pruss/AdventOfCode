@@ -12,7 +12,7 @@ comb=: 4 : 0 NB. http://www.jsoftware.com/jwiki/Essays/Combinations
 test=: 4 : 0 NB. x - number of groups
   w=. +/y   NB. total weight
   t=. <.w%x NB. target weight of each group
-  assert w=t*x NB. i.e. w is dividable by 3
+  assert w=t*x NB. i.e. w is divisible by 3
   n=.>:+/t>+/\y NB. min number of items in a group
   m=.<.x%~#y    NB. max number of items in a group - 1/x-th of all
   for_k. n+i.>:m-n do.
@@ -22,7 +22,7 @@ test=: 4 : 0 NB. x - number of groups
   end. 0
 )
 
-echo 3 test p NB. 10723906903
+echo 3 test p NB. 10723906903 - works good with downsorted, bad otherwise
 echo 4 test p NB. 74850409
 
 exit 0
