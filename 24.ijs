@@ -10,17 +10,16 @@ comb=: 4 : 0 NB. http://www.jsoftware.com/jwiki/Essays/Combinations
 )
 
 test=: 4 : 0 NB. x - number of parts
-  p=.y
-  w=. +/p   NB. total weight
+  w=. +/y   NB. total weight
   t=. <.w%x NB. target weight of each group
   assert w=t*x NB. i.e. w is dividable by 3
-  n=.>:+/t>+/\p NB. min number of items in a group
-  m=.<.3%~#p    NB. max number of items in a group - 1/3 of all
+  n=.>:+/t>+/\y NB. min number of items in a group
+  m=.<.x%~#y    NB. max number of items in a group - 1/x-th of all
   for_k. n+i.>:m-n do.
-    c=. k comb #p NB. n..m comb #p
-    s=. c#~t=+/"1 c{p NB. it would be good to check if other parts are ok...
-    if. 0<#s do. <./*/"1 s{p return. end.         NB. but some other time :)
-  end.
+    c=. k comb #y NB. n..m comb #y
+    s=. c#~t=+/"1 c{y NB. it would be good to check if other parts are ok...
+    if. 0<#s do. <./*/"1 s{y return. end.         NB. but some other time :)
+  end. 0
 )
 
 echo 3 test p NB. 10723906903
@@ -101,7 +100,6 @@ groups instead of three. The other constraints still apply.
 
 Given the example packages above, this would be the new unique first groups,
 their quantum entanglements, and one way to divide the remaining packages:
-
 
 11 4    (QE=44); 10 5;   9 3 2 1; 8 7
 10 5    (QE=50); 11 4;   9 3 2 1; 8 7
