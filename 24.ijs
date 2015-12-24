@@ -9,7 +9,7 @@ comb=: 4 : 0 NB. http://www.jsoftware.com/jwiki/Essays/Combinations
  ; z
 )
 
-test=: 4 : 0 NB. x - number of parts
+test=: 4 : 0 NB. x - number of groups
   w=. +/y   NB. total weight
   t=. <.w%x NB. target weight of each group
   assert w=t*x NB. i.e. w is dividable by 3
