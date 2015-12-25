@@ -126,5 +126,5 @@ Snow begins to fall.
 Congratulations! You've finished every puzzle! I hope you had as much
 fun solving them as I had making them for you. I'd love to hear about
 your adventure; you can get in touch with me via contact info on my
-website or through [https://twitter.com/ericwastl](Twitter).
+website [http://was.tl/] or through Twitter [@ericwastl].
 )
