@@ -1,4 +1,4 @@
-NB. diagonalisation http://adventofcode.com/day/25
+NB. diagonalization http://adventofcode.com/day/25
 
 c=: ".>cutLF 0 : 0 NB. not actually used except the 1st number
 20151125  18749137  17289845  30943339  10071777  33511524
