@@ -27,6 +27,8 @@ echo n=: 2947 i 3029 NB. index is 17850353
 echo f^:n {.{.c      NB. value is 19980801 (August 1st, 1998?)
 
 NB. (33554393&|@*&252533)^:(2947(<.&-:@(*:@+-3&*@[+]))3029)20151125
+NB. Or with power-modulo optimization, blindingly fast:
+NB. 33554393|20151125*(33554393&|@^&(2947(<.&-:@(*:@+-3&*@[+]))3029))252533
 
 exit 0
 
