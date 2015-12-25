@@ -3,7 +3,7 @@
 Advent of code 2015 - Santa-related short programming problems :)
 http://adventofcode.com/
 
-My solutions are mainly in procedural style in J. I think the strict tacit approach (like #@<:/@:+&[@[:+.~&2@{.=/) is too write-only.
+My solutions are mainly in procedural style in J. I think the strict tacit approach (like (<.&-:@(*:@+-3&*@[+]))) is too write-only.
 
 Usually the programs require one command line argument -- data file, e.g. 01.ijs 01.txt  
 Some programs with short input don't require any external data.
