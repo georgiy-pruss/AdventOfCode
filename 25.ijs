@@ -18,6 +18,7 @@ NB. f^:3 f^:7 f^:12 ...
 
 NB. zero-based index: c*(r+1)+(r*(r+1)+c*(c+1))/2
 NB. one-based index:  (c-1)*r+(r*(r-1)+c*(c-1))/2
+NB.                   (c+r)²-3*r-c
 i=: 4 : '(x*<:y)+<.-:(x*<:x)+y*<:y' NB. explicit
 i=: <.@-:@(*:@+ - 3&*@[ + ])        NB. tacit
 
