@@ -18,7 +18,8 @@ NB. f^:3 f^:7 f^:12 ...
 
 NB. zero-based index: c*(r+1)+(r*(r+1)+c*(c+1))/2
 NB. one-based index:  (c-1)*r+(r*(r-1)+c*(c-1))/2
-i=: 4 : '(x*<:y)+<.-:(x*<:x)+y*<:y'
+i=: 4 : '(x*<:y)+<.-:(x*<:x)+y*<:y' NB. explicit
+i=: <.@-:@(*:@+ - 3&*@[ + ])        NB. tacit
 
 NB. find value @ one-based row 2947, column 3029
 echo n=: 2947 i 3029 NB. index is 17850353
