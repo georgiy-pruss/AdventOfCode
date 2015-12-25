@@ -16,8 +16,8 @@ NB. f^:0 f^:2 f^:5 ...
 NB. f^:1 f^:4 f^:8 ...
 NB. f^:3 f^:7 f^:12 ...
 
-NB. zero-based index: c(r+1)+(r*(r+1)+c*(c+1))/2
-NB. one-based index:  (c-1)r+(r*(r-1)+c*(c-1))/2
+NB. zero-based index: c*(r+1)+(r*(r+1)+c*(c+1))/2
+NB. one-based index:  (c-1)*r+(r*(r-1)+c*(c-1))/2
 i=: 4 : '(x*<:y)+<.-:(x*<:x)+y*<:y'
 
 NB. find value @ one-based row 2947, column 3029
