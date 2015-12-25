@@ -1,6 +1,6 @@
 NB. diagonalisation http://adventofcode.com/day/25
 
-c=: ".>cutLF 0 : 0
+c=: ".>cutLF 0 : 0 NB. not actually used except the 1st number
 20151125  18749137  17289845  30943339  10071777  33511524
 31916031  21629792  16929656   7726640  15514188   4041754
 16080970   8057251   1601130   7981243  11661866  16474243
@@ -25,6 +25,8 @@ i=: <.@-:@(*:@+ - 3&*@[ + ])        NB. tacit
 NB. find value @ one-based row 2947, column 3029
 echo n=: 2947 i 3029 NB. index is 17850353
 echo f^:n {.{.c      NB. value is 19980801 (August 1st, 1998?)
+
+NB. (33554393&|@*&252533)^:(2947(<.&-:@(*:@+-3&*@[+]))3029)20151125
 
 exit 0
 
