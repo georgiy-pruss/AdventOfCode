@@ -38,6 +38,7 @@ You can find the original task descriptions inside the ijs files, at the end, af
 [22c.c](22c.c) wizard rpg (part 2) in C  
 [23.ijs](23.ijs) simple processor (Collatz conjecture)  
 [24.ijs](24.ijs) packages in the sleigh  
+[24n.ijs](24n.ijs) - with checking all sub-parts  
 [25.ijs](25.ijs) diagonalization (Cantor's diagonal)
 
 Don't forget to check http://jsoftware.com/pipermail/programming/2015-December/thread.html  
